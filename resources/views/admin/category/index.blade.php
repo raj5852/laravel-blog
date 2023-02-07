@@ -33,7 +33,8 @@
                         </td>
                         <td>{{$category->status == '1' ? 'Hidden':'Show' }} </td>
                         <td>
-                            <a href="" class="btn btn-success">Edit</a>
+                            <a href="{{ url('admin/edit-category/'.$category->id) }}" class="btn btn-success">Edit</a>
+                            <a href="{{ url('admin/delete-category/'.$category->id) }}" onclick="return confirm('Are you want to delete it?')" class="btn btn-danger">Delete</a>
                         </td>
                        </tr>
 
