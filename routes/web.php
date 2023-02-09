@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\UserController;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +34,9 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::put('upate-post/{post_id}',[PostController::class,'update']);
     Route::get('post/{postId}/delete',[PostController::class,'delete']);
 
-
+    Route::get('users',[UserController::class,'index']);
+    Route::get('user/{user_id}/edit',[UserController::class,'edit']);
+    Route::put('user/update/{user_id}',[UserController::class,'update']);
 });
 
 
