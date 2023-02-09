@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
 
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -27,13 +28,23 @@
             <main>
                 @yield('content')
             </main>
-           @include('layouts.inc.admin-footer')
+            @include('layouts.inc.admin-footer')
         </div>
     </div>
 
-
+    <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" crossorigin="anonymous"></script>
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#my_summernote").summernote({
+                height:150
+            });
+            $('.dropdown-toggle').dropdown();
+        });
+    </script>
 </body>
 
 </html>

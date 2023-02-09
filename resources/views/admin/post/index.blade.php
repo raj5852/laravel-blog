@@ -30,8 +30,8 @@
                             <td>{{$post->name}}</td>
                             <td>{{$post->status == '1'?'Hidden':'Show'}}</td>
                             <td>
-                                <a href="" class="btn btn-success  btn-sm">Edit</a>
-                                <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                <a href="{{ url('admin/post/'.$post->id.'/edit') }}" class="btn btn-success  btn-sm">Edit</a>
+                                <a  onclick="return confirm('Are you sure you want to delete it?')" href="{{ url('admin/post/'.$post->id.'/delete') }}" class="btn btn-danger btn-sm">Delete</a>
                             </td>
                         </tr>
 
