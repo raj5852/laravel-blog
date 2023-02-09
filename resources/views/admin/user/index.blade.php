@@ -11,7 +11,7 @@
                 </h4>
             </div>
             <div class="card-body">
-                <table class="table table-bordered">
+                <table id="myDataTable" class="table table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -37,7 +37,6 @@
                     </tbody>
 
                 </table>
-                {{$users->links()}}
             </div>
         </div>
 

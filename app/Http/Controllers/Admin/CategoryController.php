@@ -19,6 +19,7 @@ class CategoryController extends Controller
     }
     function create()
     {
+
         return view('admin.category.create');
     }
     function store(CategoryFormRequest $request)

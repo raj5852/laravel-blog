@@ -18,6 +18,8 @@
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
 </head>
 
 <body>
@@ -40,9 +42,15 @@
     <script>
         $(document).ready(function() {
             $("#my_summernote").summernote({
-                height:150
+                height: 150
             });
             $('.dropdown-toggle').dropdown();
+        });
+    </script>
+    <script src="//cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#myDataTable').DataTable();
         });
     </script>
 </body>

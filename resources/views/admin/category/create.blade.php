@@ -30,7 +30,7 @@
                         <div class="mb-3">
                             <label for="">Description</label>
                             {{-- <textarea name="description" class="form-control" rows="5"></textarea> --}}
-                            <textarea id="my_summernote" name="description" class="form-control" rows="5">{!! $category->description !!}</textarea>
+                            <textarea id="my_summernote" name="description" class="form-control" rows="5"></textarea>
 
                         </div>
                         <div class="mb-3">

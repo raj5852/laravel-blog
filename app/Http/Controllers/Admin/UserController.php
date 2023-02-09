@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     //
     function index(){
-        $users = User::paginate(10);
+        $users = User::all();
         return view('admin.user.index',compact('users'));
     }
     function edit($userId){
