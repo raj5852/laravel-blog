@@ -26,7 +26,7 @@
                         @foreach ($posts as $post)
                         <tr>
                             <td>{{$post->id}}</td>
-                            <td>{{$post->category->name}}</td>
+                            <td>{{$post->category ? $post->category->name:''}}</td>
                             <td>{{$post->name}}</td>
                             <td>{{$post->status == '1'?'Hidden':'Show'}}</td>
                             <td>

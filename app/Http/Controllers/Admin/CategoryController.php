@@ -112,6 +112,7 @@ class CategoryController extends Controller
             if (File::exists('uploads/category/' . $category->image)) {
                 File::delete('uploads/category/' . $category->image);
             }
+            $category->posts()->delete();
             $category->delete();
             return  redirect('admin/category')->with('message', 'Category Deleted successfully');
         }
