@@ -20,6 +20,21 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
+    <style>
+        .post-code-bg{
+    width: fit-content;
+    min-height: 100%;
+    background-color: #212121 !important;
+    width: 100% !important;
+    overflow-x: scroll !important;
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+    </style>
 </head>
 
 <body>

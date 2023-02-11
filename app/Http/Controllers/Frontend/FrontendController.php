@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -40,11 +41,13 @@ class FrontendController extends Controller
             }]);
 
 
-            $latestPosts = Post::where('category_id',$category->id)->where('status',0)->orderBy('created_at','DESC')->take(15)->get();
+             $latestPosts = Post::where('category_id',$category->id)->where('status',0)->orderBy('created_at','DESC')->take(15)->get();
 
+             $postId = $categoryPost->posts[0]->id;
+             $comments = Comment::where('post_id',$postId)->get();
 
             if ($categoryPost) {
-                return view('frontend.post.view', compact('categoryPost','latestPosts'));
+                return view('frontend.post.view', compact('categoryPost','latestPosts','comments'));
             } else {
                 return redirect('/');
             }

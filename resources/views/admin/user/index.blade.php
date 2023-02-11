@@ -11,32 +11,34 @@
                 </h4>
             </div>
             <div class="card-body">
-                <table id="myDataTable" class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($users as $user)
-                        <tr>
-                            <td>{{$user->id}} </td>
-                            <td>{{$user->name}} </td>
-                            <td>{{$user->email}} </td>
-                            <td>{{$user->role_as == '1' ?'Admin':'User' }} </td>
-                            <td>
-                                <a href="{{ url('admin/user/'.$user->id.'/edit') }}" class="btn btn-success">Edit</a>
-                            </td>
-                        </tr>
+                <div class="table-responsive">
+                    <table id="myDataTable" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($users as $user)
+                                <tr>
+                                    <td>{{ $user->id }} </td>
+                                    <td>{{ $user->name }} </td>
+                                    <td>{{ $user->email }} </td>
+                                    <td>{{ $user->role_as == '1' ? 'Admin' : 'User' }} </td>
+                                    <td>
+                                        <a href="{{ url('admin/user/' . $user->id . '/edit') }}" class="btn btn-success">Edit</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
 
-                        @endforeach
-                    </tbody>
+                    </table>
+                </div>
 
-                </table>
             </div>
         </div>
 

@@ -4,8 +4,10 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Frontend\CommentController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +22,13 @@ Route::get('tutorial/{category_slug}/{post_slug}', [FrontendController::class, '
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+
+Route::middleware('auth')->group(function () {
+    //comments
+    Route::post('comments', [CommentController::class, 'store']);
+    Route::get('comment/{id}/delete', [CommentController::class, 'commentdestroy']);
+});
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
@@ -50,5 +59,5 @@ Route::get('demo', function () {
     // return Category::all();
     // return auth()->user();
     // return User::where('id','!=',auth()->user()->id)->get();
-
+    return Comment::all();
 });

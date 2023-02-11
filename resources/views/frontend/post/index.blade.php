@@ -14,7 +14,7 @@
                     @forelse ($posts as $post)
                         <div class="card card-shadow mt-4">
                             <div class="card-body">
-                                <a href="{{ url('tutorial/' . $category->name . '/' . $post->slug) }}" class="text-decoration-none">
+                                <a href="{{ url('tutorial/' . $category->slug . '/' . $post->slug) }}" class="text-decoration-none">
                                     <h2 class="post-heading">{{ $post->name }}</h2>
                                 </a>
                                 <h6>
