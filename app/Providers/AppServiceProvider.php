@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Setting;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\URL;
@@ -30,5 +31,6 @@ class AppServiceProvider extends ServiceProvider
         if (env(key: 'APP_ENV') !== 'local') {
             URL::forceScheme(scheme: 'https');
         }
+        view()->share('setting', Setting::find(1));
     }
 }

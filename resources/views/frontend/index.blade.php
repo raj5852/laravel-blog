@@ -1,10 +1,30 @@
 @extends('layouts.app')
-@section('title', 'Blogging')
-@section('meta_description', 'DEscription')
-@section('meta_keyword', 'keyword')
+@section('title')
+    @empty($setting)
+        Title
+    @else
+        {{ $setting->meta_title }}
+    @endempty
+@endsection
+
+@section('meta_description')
+    @empty($setting)
+        Mata Description
+    @else
+        {{ $setting->meta_description }}
+    @endempty
+@endsection
+
+@section('meta_keyword')
+    @empty($setting)
+        Meta Keyword
+    @else
+        {{ $setting->meta_keyword }}
+    @endempty
+@endsection
+
 
 @section('content')
-
     <div class="bg-danger py-5">
         <div class="container">
             <div class="row">
@@ -89,13 +109,13 @@
                 </div>
                 <div class="col-md-8">
                     @foreach ($posts as $post)
-                            <div class="card card-body bg-gray shodow mb-3">
-                                <a href="{{ url('tutorial/' . $post->category->slug . '/' . $post->slug) }}"
-                                    class="text-decoration-none">
-                                    <h5 class="text-dark mb-0">{{ $post->name }} </h5>
-                                </a>
-                                <h6>Posted on: {{ $post->created_at->format('d-m-Y') }} </h6>
-                            </div>
+                        <div class="card card-body bg-gray shodow mb-3">
+                            <a href="{{ url('tutorial/' . $post->category->slug . '/' . $post->slug) }}"
+                                class="text-decoration-none">
+                                <h5 class="text-dark mb-0">{{ $post->name }} </h5>
+                            </a>
+                            <h6>Posted on: {{ $post->created_at->format('d-m-Y') }} </h6>
+                        </div>
                     @endforeach
                 </div>
                 <div class="col-md-4">

@@ -3,11 +3,13 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\CommentController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +51,8 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('users', [UserController::class, 'index']);
     Route::get('user/{user_id}/edit', [UserController::class, 'edit']);
     Route::put('user/update/{user_id}', [UserController::class, 'update']);
+    Route::get('setting',[SettingController::class,'index']);
+    Route::post('setting',[SettingController::class,'store']);
 });
 
 
@@ -59,5 +63,7 @@ Route::get('demo', function () {
     // return Category::all();
     // return auth()->user();
     // return User::where('id','!=',auth()->user()->id)->get();
-    return Comment::all();
+    // return Comment::all();
+    return Setting::all();
+    // return Setting::query()->delete();
 });

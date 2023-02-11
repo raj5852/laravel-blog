@@ -12,6 +12,13 @@
     <meta name="description" content="@yield('meta_description')">
     <meta name="keywords" content="@yield('meta_keyword')">
     <meta name="authors" content="Raj">
+    {{-- @php
+        $setting = App\Models\Setting::find(1);
+    @endphp --}}
+    @if ($setting)
+        <link rel="shortcut icon" href="{{ asset($setting->favicon) }}" type="image/x-icon">
+    @endif
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -45,7 +52,7 @@
             loop: true,
             margin: 10,
             nav: true,
-            dots:false,
+            dots: false,
             responsive: {
                 0: {
                     items: 2

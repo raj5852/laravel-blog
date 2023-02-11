@@ -2,8 +2,12 @@
 
     <div class="container">
         <div class="row">
+
             <div class="col-md-3 d-none d-md-inline d-sm-none">
-                <img src="{{ asset('assets/images/logo.png') }}" class="w-100" alt="logo">
+                @if ($setting)
+                    <img src="{{ asset($setting->logo) }}" class="w-100" alt="logo">
+                @endif
+
             </div>
             <div class="col-md-9  my-auto">
                 <div class="border text-center p-2">
@@ -19,8 +23,9 @@
         <div class="container">
 
             <a href="/" class="navbar-brand d-inline d-sm-inline d-md-none">
-                <img src="{{ asset('assets/images/logo.png') }}" style="width:140px" alt="logo">
-
+                @if ($setting)
+                <img src="{{ asset($setting->logo) }}" style="width:140px" alt="logo">
+                @endif
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -57,12 +62,12 @@
                         </li>
                     @endauth
                     @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('login') }}">Login </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('register') }}">Register </a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('login') }}">Login </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('register') }}">Register </a>
+                        </li>
                     @endguest
                 </ul>
 
