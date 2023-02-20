@@ -5,7 +5,7 @@
     @if (session('message'))
         <div class="alert alert-danger">{{ session('message') }}</div>
     @endif
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="min-height: 50vh">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
@@ -60,14 +60,15 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+
                             </div>
                         </div>
                     </form>
+                    <h4 class="text-danger">Admin Login</h4>
+                    <ul>
+                        <li>Email: admin@gmail.com</li>
+                        <li>password: password1234</li>
+                    </ul>
                 </div>
             </div>
         </div>

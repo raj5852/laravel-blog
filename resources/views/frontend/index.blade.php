@@ -64,7 +64,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h4>Funda of web it</h4>
+                    <h4>ভোরের বাংলা</h4>
                     <div class="underline"> </div>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, deleniti mollitia, saepe quibusdam

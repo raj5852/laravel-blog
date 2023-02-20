@@ -12,10 +12,9 @@ use App\Models\Comment;
 use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-
-
-
+use Illuminate\Support\Facades\Schema;
 
 Auth::routes();
 Route::get('/', [FrontendController::class, 'index']);
@@ -51,8 +50,8 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('users', [UserController::class, 'index']);
     Route::get('user/{user_id}/edit', [UserController::class, 'edit']);
     Route::put('user/update/{user_id}', [UserController::class, 'update']);
-    Route::get('setting',[SettingController::class,'index']);
-    Route::post('setting',[SettingController::class,'store']);
+    Route::get('setting', [SettingController::class, 'index']);
+    Route::post('setting', [SettingController::class, 'store']);
 });
 
 
@@ -64,6 +63,30 @@ Route::get('demo', function () {
     // return auth()->user();
     // return User::where('id','!=',auth()->user()->id)->get();
     // return Comment::all();
-    return Setting::all();
+    // return Setting::all();
     // return Setting::query()->delete();
+    // return DB::connection()->getPdo();
+    // return User::all();
+    // User::create([
+    //     'name'=>'admin',
+    //     'email'=>'admin@gmail.com',
+    //     'password'=>bcrypt('admin@gmail.com'),
+    // ]);
+
+ return   $user  = User::find(1);
+    // $user->role_as = 1;
+    // $user->save();
+
+    // return "ok";
+    //     $user->role_as = 1;
+    //     $user->save();
+
+    //     return "ok";
+    // User::create([
+    //     'name'=>'admin',
+    //     'email'=>'admin@gmail.com',
+    //     'password'=> bcrypt('password1234')
+    // ]);
+    // return "ok";
+
 });
